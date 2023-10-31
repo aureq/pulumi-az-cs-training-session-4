@@ -19,7 +19,7 @@ For a better learning experience, you way want to start with your own code from 
 
 ### The `webserver` project
 
-4. Switch to the [`app`](./exercise/webserver/) folder and create a new stack (`pulumi new azure-csharp`)
+4. Switch to the [`webserver/`](./exercise/webserver/) folder and create a new stack (`pulumi new azure-csharp`)
 5. Use stack references to retrieve the necessary dependencies
 6. Use the `Get*()` functions to retrieve existing resources
 7. Deploy a VM you can SSH into in the previously created subnet (Component Resource)
