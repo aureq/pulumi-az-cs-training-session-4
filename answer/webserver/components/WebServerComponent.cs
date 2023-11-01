@@ -7,23 +7,13 @@ using Pulumi.AzureNative.Network;
 using Pulumi.AzureNative.Network.Inputs;
 using Pulumi.Azure.Network;
 
-public class WebServerComponentArgs : Pulumi.ResourceArgs
+public class WebServerComponentArgs
 {
-    [Output("ResourceGroup")]
     public Output<GetResourceGroupResult>? ResourceGroup { get; set; }
-
-    [Output("NetworkSecurityGroup")]
     public Output<Pulumi.Azure.Network.GetSubnetResult>? Subnet { get; set; }
-
-    [Output("networkSecurityGroup")]
     public Output<Pulumi.Azure.Network.GetNetworkSecurityGroupResult>? NetworkSecurityGroup { get; set; }
-
-    [Input("AdminUserName")]
     public string AdminUserName { get; set; } = "AcmeCorpAdmin";
-
-    [Input("AdminPassword")]
     public Input<string>? AdminPassword { get; set; }
-
 }
 
 class WebServerComponent : ComponentResource
@@ -34,7 +24,7 @@ class WebServerComponent : ComponentResource
     public SecurityRule SecurityRule { get; private set; }
     public Pulumi.AzureNative.Network.NetworkInterface NetworkInterface { get; private set; }
 
-    public WebServerComponent(string name, WebServerComponentArgs args, ComponentResourceOptions opts) : base("pkg:index:WebServerComponent", name, opts)
+    public WebServerComponent(string name, WebServerComponentArgs args, ComponentResourceOptions? opts = null) : base("pkg:index:WebServerComponent", name, opts)
     {
         this.Name = name;
         this.Args = args;

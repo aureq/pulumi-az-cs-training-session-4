@@ -9,13 +9,10 @@ using System.Net;
 // TODO 2: Use existing Resource Group instead of creating one inside the Component
 public class NetworkComponentArgs : Pulumi.ResourceArgs
 {
-    [Input("ResourceGroup")]
     public ResourceGroup? ResourceGroup { get; set; }
 
-    [Input("CidrBlock")]
     public string? CidrBlock { get; set; }
 
-    [Input("SubnetMask")]
     public string? SubnetMask { get; set; }
 
 }
@@ -31,7 +28,7 @@ class NetworkComponent : ComponentResource
 
     public NetworkSecurityGroup NetworkSecurityGroup { get; private set; }
 
-    public NetworkComponent(string name, NetworkComponentArgs args, ComponentResourceOptions opts) : base("pkg:index:NetworkComponent", name, opts)
+    public NetworkComponent(string name, NetworkComponentArgs args, ComponentResourceOptions? opts = null) : base("pkg:index:NetworkComponent", name, opts)
     {
         this.Name = name;
         this.Args = args;
