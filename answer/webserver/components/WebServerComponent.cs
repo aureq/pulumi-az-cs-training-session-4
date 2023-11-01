@@ -9,19 +9,19 @@ using Pulumi.Azure.Network;
 
 public class WebServerComponentArgs : Pulumi.ResourceArgs
 {
-    [Output("resourceGroup")]
+    [Output("ResourceGroup")]
     public Output<GetResourceGroupResult>? ResourceGroup { get; set; }
 
-    [Output("subnet")]
+    [Output("NetworkSecurityGroup")]
     public Output<Pulumi.Azure.Network.GetSubnetResult>? Subnet { get; set; }
 
     [Output("networkSecurityGroup")]
     public Output<Pulumi.Azure.Network.GetNetworkSecurityGroupResult>? NetworkSecurityGroup { get; set; }
 
-    [Input("adminUserName")]
+    [Input("AdminUserName")]
     public string AdminUserName { get; set; } = "AcmeCorpAdmin";
 
-    [Input("adminPassword")]
+    [Input("AdminPassword")]
     public Input<string>? AdminPassword { get; set; }
 
 }
